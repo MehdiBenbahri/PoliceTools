@@ -6,6 +6,7 @@ import DatePicker from "./DatePicker";
 import Autocomplete from '@mui/material/Autocomplete';
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
+import facts from '../Data/Facts';
 
 function Home() {
 
@@ -18,20 +19,6 @@ function Home() {
     const [selectedFacts, setSelectedFacts] = useState([]);
     const [selectedFactsString, setSelectedFactsString] = useState([]);
 
-    const facts = [
-        {
-            group: "Délit Mineur",
-            name: "Entrave de la circulation",
-            price: 2130,
-            time: 0,
-        },
-        {
-            group: "Délit Moyen",
-            name: "Tentative ou vol de véhicule",
-            price: 13300,
-            time: 10,
-        }
-    ];
 
     //retourne false si la list ne contient pas l'object donnée
     function containsObject(obj, list) {
@@ -153,6 +140,7 @@ function Home() {
                                         value={selectedFacts}
                                         onChange={changeFacts}
                                         disableCloseOnSelect
+                                        groupBy={(option) => option.group}
                                         getOptionLabel={(selected) => selected.name}
                                         color={"warning"}
                                         isOptionEqualToValue={(el) => {
@@ -175,7 +163,7 @@ function Home() {
                                                           value={JSON.stringify(option)}
                                                           onChange={handleFactChange}
                                                           checked={containsObject(JSON.stringify(option),selectedFacts)}/>
-                                                <span>{option.name + " | " + option.price + "$" + " | " + (option.time > 0 ? option.time + " minutes" : "Pas de G.A.V")}</span>
+                                                <span>{option.name + " | " + option.price + "$"}</span>
                                             </li>
                                         )}
                                     />
