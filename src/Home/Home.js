@@ -5,10 +5,6 @@ import {React, useState} from "react";
 import DatePicker from "./DatePicker";
 import Autocomplete from '@mui/material/Autocomplete';
 import Checkbox from '@mui/material/Checkbox';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import ListItemText from '@mui/material/ListItemText';
-import MenuItem from '@mui/material/MenuItem';
-import {InputLabel} from "@mui/material";
 import FormControl from '@mui/material/FormControl';
 
 function Home() {
@@ -20,6 +16,7 @@ function Home() {
     }
 
     const [selectedFacts, setSelectedFacts] = useState([]);
+    const [selectedFactsString, setSelectedFactsString] = useState([]);
 
     const facts = [
         {
@@ -36,14 +33,40 @@ function Home() {
         }
     ];
 
+    //retourne false si la list ne contient pas l'object donnée
+    function containsObject(obj, list) {
+        obj = JSON.parse(obj);
+        let founded = false;
+        list.forEach(el => {
+           if (el.name === obj.name){
+               founded = true
+           }
+        });
+        return founded;
+    }
+
     const handleFactChange = (event) => {
         const {
             target: {value},
         } = event;
-        setSelectedFacts(value);
-        console.log(selectedFacts);
+        if (!containsObject(value,selectedFacts)){
+            setSelectedFacts(oldArray => [...oldArray, JSON.parse(value)]);
+            selectedFactsString.push(JSON.parse(value).name);
+        }
+        else{
+            setSelectedFacts(selectedFacts.filter(el =>
+                el.name !== JSON.parse(value).name
+            ));
+            setSelectedFactsString(selectedFactsString.filter(el =>
+                el !== JSON.parse(value).name
+            ));
+        }
     };
 
+    const changeFacts = (event) => {
+        setSelectedFacts([]);
+        setSelectedFactsString([]);
+    }
 
 
     return (
@@ -128,25 +151,36 @@ function Home() {
                                         multiple
                                         fullWidth
                                         value={selectedFacts}
-                                        onChange={handleFactChange}
+                                        onChange={changeFacts}
                                         disableCloseOnSelect
                                         getOptionLabel={(selected) => selected.name}
                                         color={"warning"}
+                                        isOptionEqualToValue={(el) => {
+                                            return true;
+                                        }}
                                         options={facts}
+                                        renderTags={
+                                            (value,props) => (
+                                                <div {...props}>{
+                                                    selectedFactsString.join(", ")
+                                                }</div>
+                                            )}
                                         renderInput={(params) => (
-                                            <TextField {...params} label="Selectionnez les faits reprochés" color={"warning"} placeholder="Rechercher les faits reprochés" />
+                                            <TextField {...params} label="Selectionnez les faits reprochés"
+                                                       color={"warning"} placeholder="Rechercher les faits reprochés"/>
                                         )}
-                                        renderOption={(props, option, { selected }) => (
+                                        renderOption={(props, option, {selected}) => (
                                             <li key={option.name}>
                                                 <Checkbox color={"warning"}
-                                                          checked={selectedFacts.find(el => el === option.name) !== undefined}/>
+                                                          value={JSON.stringify(option)}
+                                                          onChange={handleFactChange}
+                                                          checked={containsObject(JSON.stringify(option),selectedFacts)}/>
                                                 <span>{option.name + " | " + option.price + "$" + " | " + (option.time > 0 ? option.time + " minutes" : "Pas de G.A.V")}</span>
                                             </li>
                                         )}
                                     />
                                 </FormControl>
                             </div>
-
 
 
                         </div>
