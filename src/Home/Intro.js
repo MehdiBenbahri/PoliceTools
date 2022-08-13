@@ -18,7 +18,7 @@ function Intro(){
                     </div>
                     <hr/>
                     <h5>Si vous êtes policier sur Unity-RP, sélectionnez votre PDP, les autres vous pouvez partir, la suite ne sert à rien.</h5>
-                    <div className={"d-flex justify-content-evenly align-items-center"}>
+                    <div className={"d-flex flex-wrap justify-content-evenly align-items-center"}>
                         <PDPCard title={"BCSO"} img={"/img/BCSO_logo.webp"} description={"Je fais partie de l'élite de l'élite. Même le FIB nous envie, et je ne dis pas ça parce que l'auteur de ce site est un BCSO, de toute façon, toutes les polices se valent à moindre mesure..."} link={"/bcso"} />
                         <PDPCard title={"Vespucci"} img={"/img/LSPD_logo.webp"} description={"Sans nous, la ville serait un véritable ghetto. Si on compte les excès de vitesse, les trafics de drogue en bande organisée et les nombreux vols à main armée, on n'est pas si mal..."} link={"/vespucci"} />
                         <PDPCard title={"Mission Row"} img={"/img/MR_logo.webp"} description={"De nombreux SDF traînent dans les rues de Mission Row, surtout la nuit. Nous sommes là pour leur prendre le peu d'argent qu'il leur reste."} link={"/mission-row"} />
