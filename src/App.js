@@ -23,7 +23,7 @@ function App() {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const [value, setValue] = React.useState(getValueSelected());
+    const [value] = React.useState(getValueSelected());
 
     function getValueSelected() {
         switch (location.pathname) {
