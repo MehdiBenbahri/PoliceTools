@@ -10,8 +10,7 @@ import Total from "./Total";
 import moment from "moment";
 import Icon from "@mui/material/Icon";
 import Button from "@mui/material/Button"
-import {React, useState,useEffect} from "react";
-import {get} from "leaflet/src/dom/DomUtil";
+import {React, useState, useEffect} from "react";
 import Modal from "@mui/material/Modal";
 
 function Formulaire(props) {
@@ -25,7 +24,7 @@ function Formulaire(props) {
     const [date4, setDate4] = useState(moment().add(5, "minute").format("YYYY-MM-DDTHH:mm").toString());
     const [date4IsError, setDate4IsError] = useState(false);
     const [date5, setDate5] = useState(moment().add(7, "minute").format("YYYY-MM-DDTHH:mm").toString());
-    const [date5IsError, setDate5IsError] = useState(false);
+    const [date5IsError] = useState(false);
 
     const [isWaitingForJuge, setIsWaitingForJuge] = useState(true);
 
@@ -37,7 +36,7 @@ function Formulaire(props) {
         setTotalTime(selectedFacts.reduce(function (acc, obj) {
             return acc + (obj.time * obj.quantity);
         }, 0));
-        sendData();
+        //sendData();
     }
 
     const [selectedFacts, setSelectedFacts] = useState([]);
@@ -77,7 +76,7 @@ function Formulaire(props) {
             setTotalTime(totalTime - JSON.parse(value).time * JSON.parse(value).quantity);
             setTotalPrice(totalPrice - JSON.parse(value).price * JSON.parse(value).quantity);
         }
-        sendData();
+        //sendData();
     };
 
     const [phone, setPhone] = useState('');
@@ -92,7 +91,7 @@ function Formulaire(props) {
 
     function getPhone(event) {
         setPhone(event.target.value);
-        sendData();
+        //sendData();
     }
 
     const changeFacts = (event) => {
@@ -100,7 +99,7 @@ function Formulaire(props) {
         setSelectedFactsString([]);
         setTotalTime(0);
         setTotalPrice(0);
-        sendData();
+        //sendData();
     }
 
     const [open, setOpen] = useState(false);
@@ -114,7 +113,7 @@ function Formulaire(props) {
 
     useEffect(() => {
         let res = "Matricules présents : [" + agentsRegistration + "] \n";
-        res += "NOM et Prénom du ou des suspect : [" + lastName + " " + firstName + "] \n";
+        res += "Nom et Prénom du ou des suspect : [" + lastName + " " + firstName + "] \n";
         res += "Numéro de téléphone : [" + phone + "] \n";
         res += "Date et heure des productions des faits : [" + moment(date1).format("DD/MM/YYYY") + "][" + moment(date1).format("hh:mm") + "] \n";
         res += "Date et heure de mise en état d'arrestation : [" + moment(date2).format("DD/MM/YYYY") + "][" + moment(date2).format("hh:mm") + "] \n";
@@ -122,39 +121,39 @@ function Formulaire(props) {
         res += "Date et heure de lecture des droits Miranda : [" + moment(date3).format("DD/MM/YYYY") + "][" + moment(date3).format("hh:mm") + "] \n";
         res += "Date et heure de mise en G.A.V : [" + moment(date4).format("DD/MM/YYYY") + "][" + moment(date4).format("hh:mm") + "] \n";
         res += "Date et heure de sortie de G.A.V : [" + moment(date5).format("DD/MM/YYYY") + "] [" + (isWaitingForJuge ? 'EN ATTENTE DE JUGEMENT' : moment(date5).format("hh:mm")) + "] \n \n";
-        res += "Faits constatés : \n" + factsDescription + " \n";
-        res += "Faits reprochés : \n " + selectedFacts.map(el => "\n -" + el.name + " " + "x" + el.quantity ).join("") + " \n \n";
+        res += "Faits constatés : \n" + factsDescription + " \n \n";
+        res += "Faits reprochés : \n " + (selectedFacts.map(el => "\n -" + el.name + " " + "x" + el.quantity).join(" ")) + " \n \n";
         res += "Total des amendes : " + totalPrice + "$ \n";
-        res += "Total de garde à vue (minutes) : " + totalTime + " min \n";
+        res += "Total de garde à vue (minutes) : " + totalTime + " min \n \n";
         res += "Saisie : " + seizureList + " \n";
         res += "Lien Siprnet : " + siprnetLink;
         setResult(res);
-    });
+    },[agentsRegistration,lastName,firstName,phone,date1,date2,date3,date4,date5,placeProduction,isWaitingForJuge,factsDescription,totalPrice,totalTime,seizureList,siprnetLink,selectedFacts]);
 
-    function sendData() {
-        let data = {
-            firstName: firstName,
-            lastName: lastName,
-            phone: phone,
-            isWaitingForJuge: isWaitingForJuge,
-            date1: date1,
-            date2: date2,
-            date3: date3,
-            date4: date4,
-            date5: date5,
-            placeProduction: placeProduction,
-            factsDescription: factsDescription,
-            seizureList: seizureList,
-            selectedFacts: selectedFacts,
-            selectedFactsString: selectedFactsString,
-            totalPrice: totalPrice,
-            totalTime: totalTime,
-            agentsRegistration: agentsRegistration,
-            authorRegistration: authorRegistration,
-            siprnetLink: siprnetLink
-        }
-        props.data(data);
-    }
+    // function sendData() {
+    //     let data = {
+    //         firstName: firstName,
+    //         lastName: lastName,
+    //         phone: phone,
+    //         isWaitingForJuge: isWaitingForJuge,
+    //         date1: date1,
+    //         date2: date2,
+    //         date3: date3,
+    //         date4: date4,
+    //         date5: date5,
+    //         placeProduction: placeProduction,
+    //         factsDescription: factsDescription,
+    //         seizureList: seizureList,
+    //         selectedFacts: selectedFacts,
+    //         selectedFactsString: selectedFactsString,
+    //         totalPrice: totalPrice,
+    //         totalTime: totalTime,
+    //         agentsRegistration: agentsRegistration,
+    //         authorRegistration: authorRegistration,
+    //         siprnetLink: siprnetLink
+    //     }
+    //     props.data(data);
+    // }
 
     return (
         <div>
@@ -167,7 +166,7 @@ function Formulaire(props) {
                                    value={firstName}
                                    onChange={(e) => {
                                        setFirstName(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    placeholder={"Licro"}
                                    variant="outlined"/>
@@ -178,7 +177,7 @@ function Formulaire(props) {
                                    value={lastName}
                                    onChange={(e) => {
                                        setLastName(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    placeholder={"Robert"}
                                    variant="outlined"/>
@@ -194,7 +193,7 @@ function Formulaire(props) {
                                     onChange={(e) => {
                                         setDate1(e.target.value);
                                         setDate1IsError(new Date(date1).getTime() >= new Date(date2).getTime());
-                                        sendData();
+                                        //sendData();
                                     }}
                                     isError={new Date(date1).getTime() >= new Date(date2).getTime()}
                                     max={date2}
@@ -207,7 +206,7 @@ function Formulaire(props) {
                                     onChange={(e) => {
                                         setDate2(e.target.value);
                                         setDate2IsError(new Date(date2).getTime() >= new Date(date3).getTime());
-                                        sendData();
+                                        //sendData();
                                     }} value={date2}/>
                     </div>
                     <div className={"col-sm-12 col-md-6 col-lg-6 mt-3 px-4"}>
@@ -217,18 +216,18 @@ function Formulaire(props) {
                                     onChange={(e) => {
                                         setDate3(e.target.value);
                                         setDate3IsError(new Date(date3).getTime() >= new Date(date4).getTime());
-                                        sendData();
+                                        //sendData();
                                     }}
                                     value={date3}/>
                     </div>
                     <div className={"col-sm-12 col-md-6 col-lg-6 mt-3 px-4"}>
                         <DatePicker label={"Date/Heure de mise en G.A.V"}
                                     min={date3}
-                                    isError={new Date(date4).getTime() >= new Date(date5).getTime()}
+                                    isError={!isWaitingForJuge ? new Date(date4).getTime() >= new Date(date5).getTime() : false}
                                     onChange={(e) => {
                                         setDate4(e.target.value);
                                         setDate4IsError(new Date(date4).getTime() >= new Date(date5).getTime());
-                                        sendData();
+                                        //sendData();
                                     }}
                                     value={date4}/>
                     </div>
@@ -239,7 +238,7 @@ function Formulaire(props) {
                                 <Checkbox checked={isWaitingForJuge}
                                           onChange={() => {
                                               setIsWaitingForJuge(!isWaitingForJuge);
-                                              sendData();
+                                              //sendData();
                                           }}
                                           color={"default"}
                                           name={"isWaitingJuge"}
@@ -253,7 +252,7 @@ function Formulaire(props) {
                                        style={{fontSize: "0.85rem"}}
                                        onChange={(e) => {
                                            setDate5(e.target.value);
-                                           sendData();
+                                           //sendData();
                                        }}
                                        className={"form-control-lg border border-yellow-paper shadow-none bg-transparent"}
                                        type={!isWaitingForJuge ? "datetime-local" : "date"}
@@ -270,7 +269,7 @@ function Formulaire(props) {
                                    value={placeProduction}
                                    onChange={(e) => {
                                        setPlaceProduction(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    placeholder={"Derrière le garage de Paleto Bay, entre le point d'opium et la plage."}
                                    variant="outlined"/>
@@ -281,7 +280,7 @@ function Formulaire(props) {
                                    value={factsDescription}
                                    onChange={(e) => {
                                        setFactsDescription(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    label="Faits constatés"
                                    placeholder={"Racontez les faits avec le plus de détails possible (surtout ceux qui sont en rapport avec les faits reprochés)."}
@@ -295,7 +294,7 @@ function Formulaire(props) {
                                    value={seizureList}
                                    onChange={(e) => {
                                        setSeizureList(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    placeholder={"5 Berretta, 15 000$ d'argent sale ainsi qu'un couteau rose fluo..."}
                                    variant="outlined"/>
@@ -353,7 +352,7 @@ function Formulaire(props) {
                                    value={agentsRegistration}
                                    onChange={(e) => {
                                        setAgentsRegistration(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    placeholder={"45-BCSO;32-MR;47-BCSO"}
                                    variant="outlined"/>
@@ -364,7 +363,7 @@ function Formulaire(props) {
                                    value={authorRegistration}
                                    onChange={(e) => {
                                        setAuthorRegistration(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    placeholder={"42-BCSO"}
                                    variant="outlined"/>
@@ -375,7 +374,7 @@ function Formulaire(props) {
                                    value={siprnetLink}
                                    onChange={(e) => {
                                        setSiprnetLink(e.target.value);
-                                       sendData();
+                                       //sendData();
                                    }}
                                    placeholder={"https://siprnet.pryoxis.net/case/?character_id=..."}
                                    variant="outlined"/>
@@ -383,8 +382,12 @@ function Formulaire(props) {
                 </div>
             </div>
             <div className={"d-flex justify-content-center align-items-center my-3"}>
-                <Button onClick={handleOpen} variant="contained" color={"warning"}>Générer le
-                    rapport <Icon>cached</Icon></Button>
+                {(date1IsError || date2IsError || date3IsError || date4IsError || date5IsError) ? <Button onClick={handleOpen} variant="contained" color={"error"}>
+                    Attention à la cohérence de vos dates <Icon>warningAmber</Icon>
+                </Button> : <Button onClick={handleOpen} variant="contained" color={"warning"}>
+                    Générer le rapport <Icon>cached</Icon>
+                </Button>}
+
             </div>
             <Modal
                 open={open}
@@ -397,10 +400,18 @@ function Formulaire(props) {
                     <div className={"bg-dark my-3 p-2 col-sm-11 col-md-10 col-lg-8 text-light"}>
                         <div className={"d-flex justify-content-between align-items-center"}>
                             <h5 className={"user-select-none"}>Rapport généré avec succès.</h5>
-                            <Button onClick={() => handleClose()}><Icon>close</Icon></Button>
+                            <div>
+                                <Button className={"text-light border border-light"} onClick={() => navigator.clipboard.writeText(result)}>
+                                    Copier 📋
+                                </Button>
+                                <Button color={"warning"} onClick={() => handleClose()}>
+                                    <Icon>close</Icon>
+                                </Button>
+                            </div>
                         </div>
                         <div className={"my-3 user-select-none"}>
-                            <div className={"text-light opacity-75"}>Attention vérifier bien s'il y a aucun oublie, vous
+                            <div className={"text-light opacity-75"}>Attention, vérifiez bien s'il y a aucun oublie,
+                                vous
                                 pouvez copier-coller et/ou modifier votre rapport ici même (mais ce ne sera pas
                                 sauvegardé si vous fermez cette modal).
                             </div>

@@ -1,5 +1,3 @@
-import Timer from "../Utils/Timer";
-
 function Total(props){
 
     return (
