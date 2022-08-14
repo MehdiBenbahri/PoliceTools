@@ -267,7 +267,7 @@ const facts = [
         "group": "Délit Mineur",
         "name": "Menace ou intimidation envers dépositaire de l'autorité publique et/ou fonctionnaire",
         "price": 65000,
-        "time": 22,
+        "time": 20,
         "comment": "Si utilisation d'une arme, retrait du PPA",
         "other": "Saisie de l'arme", "quantity": 1
     },
@@ -331,7 +331,7 @@ const facts = [
         "group": "Délit Moyen",
         "name": "Port d'arme / équipement illégal",
         "price": 28900,
-        "time": 22,
+        "time": 20,
         "comment": "Retrait du PPA",
         "other": "Saisie de l'arme - Arme de poing autorisé uniquement (AVEC LICENCE)", "quantity": 1
     },
@@ -388,7 +388,7 @@ const facts = [
         "group": "Délit Moyen",
         "name": "Prise d'otage sur civil",
         "price": 75000,
-        "time": 22,
+        "time": 20,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
         "other": "Saisie du véhicule si utilisé. Saisie de l'arme si utilisé", "quantity": 1
     },
