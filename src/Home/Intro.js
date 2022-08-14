@@ -26,6 +26,7 @@ function Intro(){
                 </div>
                 <div className="col-sm-1 col-md-2"></div>
             </div>
+            <div className={"my-5"}></div>
         </div>
     )
 }

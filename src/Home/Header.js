@@ -1,8 +1,13 @@
 import React from "react";
+import Link from "@mui/material/Link";
+import {Icon} from "@mui/material";
 
 function Header(props) {
     return (
         <div>
+            <div className={"d-flex justify-content-end align-items-center"}>
+                <Link className={"btn btn-outlined-light my-3 text-decoration-none border text-light mx-2"} href={"/"}>Retour 🚪</Link>
+            </div>
             <div className={"row my-2"}>
                 <div className={
                     "col-sm-12 " +
@@ -18,10 +23,10 @@ function Header(props) {
                     " d-flex justify-content-center align-items-center"}>
                     <div className={"rubik-mono-one h2 mt-3 mb-0 text-center"}>{props.title}</div>
                 </div>
-
             </div>
             <hr/>
         </div>
     )
 }
+
 export default Header;

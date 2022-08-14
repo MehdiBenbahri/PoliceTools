@@ -24,6 +24,7 @@ function Menu(){
 
     return (
         <div className={"d-flex justify-content-center align-items-center bg-dark shadow-sm"}>
+
             <Tabs value={value} aria-label="nav tabs principale">
                 <LinkTab
                     className={"tab-hover " + (location.pathname === "/bcso" ? "tab-selected" : "")}

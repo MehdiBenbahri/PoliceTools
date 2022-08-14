@@ -126,9 +126,10 @@ function Formulaire(props) {
         res += "Total des amendes : " + totalPrice + "$ \n";
         res += "Total de garde à vue (minutes) : " + totalTime + " min \n \n";
         res += "Saisie : " + seizureList + " \n";
-        res += "Lien Siprnet : " + siprnetLink;
+        res += "Lien Siprnet : " + siprnetLink + " \n";
+        res += "Fin du rapport | " + authorRegistration ;
         setResult(res);
-    },[agentsRegistration,lastName,firstName,phone,date1,date2,date3,date4,date5,placeProduction,isWaitingForJuge,factsDescription,totalPrice,totalTime,seizureList,siprnetLink,selectedFacts]);
+    },[agentsRegistration,authorRegistration,lastName,firstName,phone,date1,date2,date3,date4,date5,placeProduction,isWaitingForJuge,factsDescription,totalPrice,totalTime,seizureList,siprnetLink,selectedFacts]);
 
     // function sendData() {
     //     let data = {
