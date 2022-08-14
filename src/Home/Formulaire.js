@@ -110,26 +110,38 @@ function Formulaire(props) {
 
     const handleClose = () => setOpen(false);
     const [result, setResult] = useState('');
+    const [selectedLawMan, setSelectedLawMan] = useState('');
+    const [result2, setResult2] = useState('');
 
     useEffect(() => {
         let res = "Matricules présents : [" + agentsRegistration + "] \n";
         res += "Nom et Prénom du ou des suspect : [" + lastName + " " + firstName + "] \n";
         res += "Numéro de téléphone : [" + phone + "] \n";
-        res += "Date et heure des productions des faits : [" + moment(date1).format("DD/MM/YYYY") + "][" + moment(date1).format("hh:mm") + "] \n";
-        res += "Date et heure de mise en état d'arrestation : [" + moment(date2).format("DD/MM/YYYY") + "][" + moment(date2).format("hh:mm") + "] \n";
+        res += "Date et heure des productions des faits : [" + moment(date1).format("DD/MM/YYYY") + "][" + moment(date1).format("HH:mm") + "] \n";
+        res += "Date et heure de mise en état d'arrestation : [" + moment(date2).format("DD/MM/YYYY") + "][" + moment(date2).format("HH:mm") + "] \n";
         res += "Lieu de production des faits : [" + placeProduction + "] \n \n";
-        res += "Date et heure de lecture des droits Miranda : [" + moment(date3).format("DD/MM/YYYY") + "][" + moment(date3).format("hh:mm") + "] \n";
-        res += "Date et heure de mise en G.A.V : [" + moment(date4).format("DD/MM/YYYY") + "][" + moment(date4).format("hh:mm") + "] \n";
-        res += "Date et heure de sortie de G.A.V : [" + moment(date5).format("DD/MM/YYYY") + "] [" + (isWaitingForJuge ? 'EN ATTENTE DE JUGEMENT' : moment(date5).format("hh:mm")) + "] \n \n";
+        res += "Date et heure de lecture des droits Miranda : [" + moment(date3).format("DD/MM/YYYY") + "][" + moment(date3).format("HH:mm") + "] \n";
+        res += "Date et heure de mise en G.A.V : [" + moment(date4).format("DD/MM/YYYY") + "][" + moment(date4).format("HH:mm") + "] \n";
+        res += "Date et heure de sortie de G.A.V : [" + moment(date5).format("DD/MM/YYYY") + "] [" + (isWaitingForJuge ? 'EN ATTENTE DE JUGEMENT' : moment(date5).format("HH:mm")) + "] \n \n";
         res += "Faits constatés : \n" + factsDescription + " \n \n";
         res += "Faits reprochés : \n " + (selectedFacts.map(el => "\n -" + el.name + " " + "x" + el.quantity).join(" ")) + " \n \n";
         res += "Total des amendes : " + totalPrice + "$ \n";
         res += "Total de garde à vue (minutes) : " + totalTime + " min \n \n";
         res += "Saisie : " + seizureList + " \n";
         res += "Lien Siprnet : " + siprnetLink + " \n";
-        res += "Fin du rapport | " + authorRegistration ;
+        res += "Fin du rapport | " + authorRegistration;
         setResult(res);
-    },[agentsRegistration,authorRegistration,lastName,firstName,phone,date1,date2,date3,date4,date5,placeProduction,isWaitingForJuge,factsDescription,totalPrice,totalTime,seizureList,siprnetLink,selectedFacts]);
+
+        let res2 = ("Bonjour Mesdames/Messieurs les @{{LAW_MEN}}, nous avons besoin de vos services pour : " + lastName + " " + firstName + "\n \n").replace("{{LAW_MEN}}", selectedLawMan);
+        res2 += "Faits reprochés : \n " + (selectedFacts.map(el => "\n -" + el.name + " " + "x" + el.quantity).join(" ")) + " \n \n";
+        res2 += "Total des amendes : " + totalPrice + "$ \n";
+        res2 += "Total de garde à vue (minutes) : " + totalTime + " min \n \n";
+        res2 += "Saisie : " + seizureList + " \n";
+        res2 += "Lien Siprnet : " + siprnetLink + " \n";
+        res2 += "Cordialement | " + authorRegistration;
+        setResult2(res2);
+
+    }, [result, result2, selectedLawMan, agentsRegistration, authorRegistration, lastName, firstName, phone, date1, date2, date3, date4, date5, placeProduction, isWaitingForJuge, factsDescription, totalPrice, totalTime, seizureList, siprnetLink, selectedFacts]);
 
     // function sendData() {
     //     let data = {
@@ -383,11 +395,12 @@ function Formulaire(props) {
                 </div>
             </div>
             <div className={"d-flex justify-content-center align-items-center my-3"}>
-                {(date1IsError || date2IsError || date3IsError || date4IsError || date5IsError) ? <Button onClick={handleOpen} variant="contained" color={"error"}>
-                    Attention à la cohérence de vos dates <Icon>warningAmber</Icon>
-                </Button> : <Button onClick={handleOpen} variant="contained" color={"warning"}>
-                    Générer le rapport <Icon>cached</Icon>
-                </Button>}
+                {(date1IsError || date2IsError || date3IsError || date4IsError || date5IsError) ?
+                    <Button onClick={handleOpen} variant="contained" color={"error"}>
+                        Attention à la cohérence de vos dates <Icon>warningAmber</Icon>
+                    </Button> : <Button onClick={handleOpen} variant="contained" color={"warning"}>
+                        Générer le rapport <Icon>cached</Icon>
+                    </Button>}
 
             </div>
             <Modal
@@ -400,9 +413,10 @@ function Formulaire(props) {
                     className={"d-flex justify-content-center align-items-center animate__animated animate__fadeInUp"}>
                     <div className={"bg-dark my-3 p-2 col-sm-11 col-md-10 col-lg-8 text-light"}>
                         <div className={"d-flex justify-content-between align-items-center"}>
-                            <h5 className={"user-select-none"}>Rapport généré avec succès.</h5>
+                            <h5 className={"user-select-none"}>Génération du rapport du rapport d'intervention</h5>
                             <div>
-                                <Button className={"text-light border border-light"} onClick={() => navigator.clipboard.writeText(result)}>
+                                <Button className={"text-light border border-light"}
+                                        onClick={() => navigator.clipboard.writeText(result)}>
                                     Copier 📋
                                 </Button>
                                 <Button color={"warning"} onClick={() => handleClose()}>
@@ -426,8 +440,39 @@ function Formulaire(props) {
                         <textarea className={"w-100 bg-yellow-paper"} defaultValue={result} name="result" id="result"
                                   cols="30"
                                   rows="15">
-
-                    </textarea>
+                        </textarea>
+                        <h5 className={"user-select-none"}>{selectedLawMan !== "" ? 'Génération des demandes de ' + selectedLawMan : 'Pour les demandes, selectionnez le type de demande'}</h5>
+                        <div className={"d-flex justify-content-between align-items-center"}>
+                            <div className={"d-flex justify-content-center align-items-center"}>
+                                <Button color={"error"}
+                                        className={(selectedLawMan === "Juge" ? 'border border-2 border-light' : '')}
+                                        variant={"contained"} onClick={() => {
+                                    setSelectedLawMan("Juge");
+                                }}>
+                                    Juge ‍⚖️
+                                </Button>
+                                <Button
+                                    className={"mx-3 " + (selectedLawMan === "Procureur" ? 'border border-2 border-light' : '')}
+                                    color={"secondary"} variant={"contained"}
+                                    onClick={() => setSelectedLawMan("Procureur")}>
+                                    Procureur 📚
+                                </Button>
+                                <Button color={"info"}
+                                        className={(selectedLawMan === "Avocat" ? 'border border-2 border-light' : '')}
+                                        variant={"contained"} onClick={() => setSelectedLawMan("Avocat")}>
+                                    Avocat 💼
+                                </Button>
+                            </div>
+                            <div className={"d-flex justify-content-end align-items-center"}>
+                                <Button className={"text-light border border-light"} onClick={() => navigator.clipboard.writeText(result2)}>
+                                    Copier 📋
+                                </Button>
+                            </div>
+                        </div>
+                        <hr/>
+                        {selectedLawMan !== '' ? (
+                            <textarea className={"w-100 bg-yellow-paper"} onChange={(e) => setResult2(e.target.value)} value={result2} name="result2" id="result2"
+                                      cols="30" rows="5"></textarea>) : ''}
                     </div>
                 </div>
             </Modal>
