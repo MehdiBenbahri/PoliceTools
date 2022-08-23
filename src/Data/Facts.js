@@ -93,7 +93,8 @@ const facts = [
         "price": 400,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null,
+        "quantity": 1
     },
     {
         "group": "Infraction",
@@ -301,7 +302,8 @@ const facts = [
         "price": 21500,
         "time": 5,
         "comment": null,
-        "other": "Saisie de l'arme", "quantity": 1
+        "other": "Saisie de l'arme", "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Moyen",
@@ -325,7 +327,9 @@ const facts = [
         "price": 27830,
         "time": 5,
         "comment": "Retrait du permis de porte d'arme si posséder",
-        "other": "Saisie de l'arme", "quantity": 1
+        "other": "Saisie de l'arme",
+        "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Moyen",
@@ -333,7 +337,8 @@ const facts = [
         "price": 28900,
         "time": 20,
         "comment": "Retrait du PPA",
-        "other": "Saisie de l'arme - Arme de poing autorisé uniquement (AVEC LICENCE)", "quantity": 1
+        "other": "Saisie de l'arme - Arme de poing autorisé uniquement (AVEC LICENCE)", "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Moyen",
@@ -349,7 +354,9 @@ const facts = [
         "price": 35600,
         "time": 25,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null,
+        "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Moyen",
@@ -439,7 +446,8 @@ const facts = [
         "price": 56300,
         "time": 25,
         "comment": "Retrait du PPA",
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,
+        "concernWeapon":true
     },
     {
         "group": "Délit Majeur",
@@ -447,7 +455,8 @@ const facts = [
         "price": 65300,
         "time": 30,
         "comment": null,
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Majeur",
@@ -455,7 +464,9 @@ const facts = [
         "price": 65300,
         "time": 20,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé",
+        "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Majeur",
@@ -463,7 +474,9 @@ const facts = [
         "price": 72300,
         "time": 25,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé",
+        "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Majeur",
@@ -471,7 +484,9 @@ const facts = [
         "price": 82300,
         "time": 30,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé",
+        "quantity": 1,
+        "concernWeapon": true
     },
     {
         "group": "Délit Majeur",
@@ -479,7 +494,8 @@ const facts = [
         "price": 102300,
         "time": 30,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,
+        "concernWeapon": true
     }
 ];
 

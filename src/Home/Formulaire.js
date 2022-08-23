@@ -76,6 +76,8 @@ function Formulaire(props) {
             setTotalTime(totalTime - JSON.parse(value).time * JSON.parse(value).quantity);
             setTotalPrice(totalPrice - JSON.parse(value).price * JSON.parse(value).quantity);
         }
+
+
         //sendData();
     };
 
@@ -89,6 +91,20 @@ function Formulaire(props) {
     const [authorRegistration, setAuthorRegistration] = useState('');
     const [siprnetLink, setSiprnetLink] = useState('');
 
+    const [seizureIsError, setSeizureIsError] = useState(false);
+    const [seizureIsErrorMessage, setSeizureIsErrorMessage] = useState('');
+    useEffect(function() {
+        if (selectedFacts.filter(el => el.concernWeapon === true).length > 0 && seizureList.length <= 2){
+            setSeizureIsError(true);
+            setSeizureIsErrorMessage("️️Attention : vous avez sélectionné des faits reprochés qui concernent des armes, vérifier bien que vous avez saisi toutes les armes sur cet individu ! Si ce dernier n'avait pas d'arme sur lui (en cas de complicité), ajouter 'Aucune arme saisi sur l'individu.")
+        }
+        else{
+            setSeizureIsError(false);
+            setSeizureIsErrorMessage('');
+        }
+    },[selectedFacts,seizureList])
+
+
     function getPhone(event) {
         setPhone(event.target.value);
         //sendData();
@@ -99,6 +115,7 @@ function Formulaire(props) {
         setSelectedFactsString([]);
         setTotalTime(0);
         setTotalPrice(0);
+
         //sendData();
     }
 
@@ -304,6 +321,8 @@ function Formulaire(props) {
                         <TextField fullWidth id="object" className={"rounded text-light"}
                                    color={"warning"}
                                    label="Saisies"
+                                   error={seizureIsError}
+                                   helperText={seizureIsErrorMessage}
                                    value={seizureList}
                                    onChange={(e) => {
                                        setSeizureList(e.target.value);
@@ -335,7 +354,7 @@ function Formulaire(props) {
                                         }</div>
                                     )}
                                 renderInput={(params) => (
-                                    <TextField {...params} label="Selectionnez les faits reprochés"
+                                    <TextField {...params} label="Sélectionnez les faits reprochés"
                                                color={"warning"} placeholder="Rechercher les faits reprochés"/>
                                 )}
                                 renderOption={(props, option, {selected}) => (
