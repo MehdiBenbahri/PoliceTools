@@ -96,7 +96,7 @@ function Formulaire(props) {
     useEffect(function() {
         if (selectedFacts.filter(el => el.concernWeapon === true).length > 0 && seizureList.length <= 2){
             setSeizureIsError(true);
-            setSeizureIsErrorMessage("️️Attention : vous avez sélectionné des faits reprochés qui concernent des armes, vérifier bien que vous avez saisi toutes les armes sur cet individu ! Si ce dernier n'avait pas d'arme sur lui (en cas de complicité), ajouter 'Aucune arme saisi sur l'individu.")
+            setSeizureIsErrorMessage("️️Attention : vous avez sélectionné des faits reprochés qui concernent des armes, vérifier bien que vous avez saisi toutes les armes sur cet individu ! Si ce dernier n'avait pas d'arme sur lui (en cas de complicité), ajouter 'Aucune arme saisi sur l'individu'.")
         }
         else{
             setSeizureIsError(false);
