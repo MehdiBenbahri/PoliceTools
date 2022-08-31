@@ -5,7 +5,7 @@ const facts = [
         "price": 50,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -13,7 +13,7 @@ const facts = [
         "price": 100,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -21,7 +21,7 @@ const facts = [
         "price": 100,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -29,7 +29,7 @@ const facts = [
         "price": 150,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -37,7 +37,7 @@ const facts = [
         "price": 200,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -45,7 +45,7 @@ const facts = [
         "price": 200,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -53,7 +53,7 @@ const facts = [
         "price": 250,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -61,7 +61,7 @@ const facts = [
         "price": 300,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -69,7 +69,7 @@ const facts = [
         "price": 300,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -77,7 +77,7 @@ const facts = [
         "price": 300,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -85,7 +85,7 @@ const facts = [
         "price": 300,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -94,7 +94,7 @@ const facts = [
         "time": 0,
         "comment": null,
         "other": null,
-        "quantity": 1
+        "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -102,7 +102,7 @@ const facts = [
         "price": 500,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -110,7 +110,7 @@ const facts = [
         "price": 600,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -118,7 +118,7 @@ const facts = [
         "price": 2000,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -126,7 +126,7 @@ const facts = [
         "price": 2450,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -134,7 +134,7 @@ const facts = [
         "price": 4800,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -142,7 +142,7 @@ const facts = [
         "price": 8450,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -150,7 +150,7 @@ const facts = [
         "price": 9980,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Infraction",
@@ -158,7 +158,7 @@ const facts = [
         "price": 19680,
         "time": 15,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -166,7 +166,7 @@ const facts = [
         "price": 1300,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -174,7 +174,7 @@ const facts = [
         "price": 1970,
         "time": 5,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -182,7 +182,7 @@ const facts = [
         "price": 2130,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -190,7 +190,7 @@ const facts = [
         "price": 4960,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -198,7 +198,7 @@ const facts = [
         "price": 10000,
         "time": 5,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -206,7 +206,7 @@ const facts = [
         "price": 14300,
         "time": 5,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -214,7 +214,7 @@ const facts = [
         "price": 15630,
         "time": 10,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -222,7 +222,7 @@ const facts = [
         "price": 17800,
         "time": 15,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -230,7 +230,7 @@ const facts = [
         "price": 19600,
         "time": 10,
         "comment": "Vous pouvez, si la personne continue aller jusqu'à 20 000$ et 10 minutes",
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -238,7 +238,7 @@ const facts = [
         "price": 22630,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -246,7 +246,7 @@ const facts = [
         "price": 28920,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -254,7 +254,7 @@ const facts = [
         "price": 42560,
         "time": 10,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -262,7 +262,7 @@ const facts = [
         "price": 62200,
         "time": 10,
         "comment": "Retrait du permis",
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Mineur",
@@ -270,7 +270,7 @@ const facts = [
         "price": 65000,
         "time": 20,
         "comment": "Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie de l'arme", "quantity": 1
+        "other": "Saisie de l'arme", "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -278,7 +278,7 @@ const facts = [
         "price": 13300,
         "time": 10,
         "comment": "Retrait du permis",
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -286,7 +286,7 @@ const facts = [
         "price": 14600,
         "time": 10,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -294,7 +294,7 @@ const facts = [
         "price": 21300,
         "time": 10,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -302,7 +302,7 @@ const facts = [
         "price": 21500,
         "time": 5,
         "comment": null,
-        "other": "Saisie de l'arme", "quantity": 1,
+        "other": "Saisie de l'arme", "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -311,7 +311,7 @@ const facts = [
         "price": 22300,
         "time": 30,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -319,7 +319,7 @@ const facts = [
         "price": 24600,
         "time": 15,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -328,7 +328,7 @@ const facts = [
         "time": 5,
         "comment": "Retrait du permis de porte d'arme si posséder",
         "other": "Saisie de l'arme",
-        "quantity": 1,
+        "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -337,7 +337,7 @@ const facts = [
         "price": 28900,
         "time": 20,
         "comment": "Retrait du PPA",
-        "other": "Saisie de l'arme - Arme de poing autorisé uniquement (AVEC LICENCE)", "quantity": 1,
+        "other": "Saisie de l'arme - Arme de poing autorisé uniquement (AVEC LICENCE)", "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -346,7 +346,7 @@ const facts = [
         "price": 34650,
         "time": 15,
         "comment": null,
-        "other": "Saisie de la drogue. Saisie du matériel", "quantity": 1
+        "other": "Saisie de la drogue. Saisie du matériel", "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -355,7 +355,7 @@ const facts = [
         "time": 25,
         "comment": null,
         "other": null,
-        "quantity": 1,
+        "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -364,7 +364,7 @@ const facts = [
         "price": 36500,
         "time": 25,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -372,7 +372,7 @@ const facts = [
         "price": 39650,
         "time": 10,
         "comment": null,
-        "other": "Saisie de la drogue", "quantity": 1
+        "other": "Saisie de la drogue", "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -380,7 +380,7 @@ const facts = [
         "price": 45600,
         "time": 15,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -389,7 +389,7 @@ const facts = [
         "time": 15,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
         "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé. Saisie de toute somme d'argent sur l'individu",
-        "quantity": 1
+        "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -397,7 +397,7 @@ const facts = [
         "price": 75000,
         "time": 20,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme si utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme si utilisé", "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -405,7 +405,7 @@ const facts = [
         "price": 82360,
         "time": 0,
         "comment": null,
-        "other": null, "quantity": 1
+        "other": null, "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -413,7 +413,7 @@ const facts = [
         "price": 86000,
         "time": 30,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -421,7 +421,7 @@ const facts = [
         "price": 125000,
         "time": 30,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Moyen",
@@ -430,7 +430,7 @@ const facts = [
         "time": 30,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
         "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé. Saisie de toute somme d'argent sur l'individu",
-        "quantity": 1
+        "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Majeur",
@@ -438,7 +438,7 @@ const facts = [
         "price": 36000,
         "time": 15,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie de l'arme", "quantity": 1
+        "other": "Saisie de l'arme", "quantity": 1,"is_not_payed":false
     },
     {
         "group": "Délit Majeur",
@@ -446,7 +446,7 @@ const facts = [
         "price": 56300,
         "time": 25,
         "comment": "Retrait du PPA",
-        "other": null, "quantity": 1,
+        "other": null, "quantity": 1,"is_not_payed":false,
         "concernWeapon":true
     },
     {
@@ -455,7 +455,7 @@ const facts = [
         "price": 65300,
         "time": 30,
         "comment": null,
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -465,7 +465,7 @@ const facts = [
         "time": 20,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
         "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé",
-        "quantity": 1,
+        "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -475,7 +475,7 @@ const facts = [
         "time": 25,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
         "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé",
-        "quantity": 1,
+        "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -485,7 +485,7 @@ const facts = [
         "time": 30,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
         "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé",
-        "quantity": 1,
+        "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     },
     {
@@ -494,7 +494,7 @@ const facts = [
         "price": 102300,
         "time": 30,
         "comment": "Si avec véhicule, retrait du permis requis pour le véhicule en question. Si utilisation d'une arme, retrait du PPA",
-        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,
+        "other": "Saisie du véhicule si utilisé. Saisie de l'arme su utilisé", "quantity": 1,"is_not_payed":false,
         "concernWeapon": true
     }
 ];

@@ -39,6 +39,12 @@ function Formulaire(props) {
         //sendData();
     }
 
+    const [nbNotPayed, setNbNotPayed] = useState(0);
+    function handleEditedFactStatus(e) {
+        setSelectedFacts(e);
+        setNbNotPayed(selectedFacts.filter(el => el.is_not_payed).length);
+    }
+
     const [selectedFacts, setSelectedFacts] = useState([]);
     const [selectedFactsString, setSelectedFactsString] = useState([]);
 
@@ -125,13 +131,19 @@ function Formulaire(props) {
         setOpen(true);
     }
 
+    const [readedRights, setReadedRights] = useState(false);
+    function handleReadedRights(event){
+        setReadedRights(event.target.checked);
+    }
+
     const handleClose = () => setOpen(false);
     const [result, setResult] = useState('');
     const [selectedLawMan, setSelectedLawMan] = useState('');
     const [result2, setResult2] = useState('');
 
     useEffect(() => {
-        let res = "Matricules présents : [" + agentsRegistration + "] \n";
+        let res = readedRights ? 'Le suspect à bien entendu et compris tous ses droits \n' : '';
+        res += "Matricules présents : [" + agentsRegistration + "] \n";
         res += "Nom et Prénom du ou des suspect : [" + lastName + " " + firstName + "] \n";
         res += "Numéro de téléphone : [" + phone + "] \n";
         res += "Date et heure des productions des faits : [" + moment(date1).format("DD/MM/YYYY") + "][" + moment(date1).format("HH:mm") + "] \n";
@@ -141,7 +153,10 @@ function Formulaire(props) {
         res += "Date et heure de mise en G.A.V : [" + moment(date4).format("DD/MM/YYYY") + "][" + moment(date4).format("HH:mm") + "] \n";
         res += "Date et heure de sortie de G.A.V : [" + moment(date5).format("DD/MM/YYYY") + "] [" + (isWaitingForJuge ? 'EN ATTENTE DE JUGEMENT' : moment(date5).format("HH:mm")) + "] \n \n";
         res += "Faits constatés : \n" + factsDescription + " \n \n";
-        res += "Faits reprochés : \n " + (selectedFacts.map(el => "\n -" + el.name + " " + "x" + el.quantity).join(" ")) + " \n \n";
+        res += "Faits reprochés : \n " + (selectedFacts.map(el => {
+            let str = "\n -" + el.name + " " + ("x" + el.quantity) + " " + (el.is_not_payed ? '(Amende impayée)' : '');
+            return str
+        }).join(" ")) + " \n \n";
         res += "Total des amendes : " + totalPrice + "$ \n";
         res += "Total de garde à vue (minutes) : " + totalTime + " min \n \n";
         res += "Saisie : " + seizureList + " \n";
@@ -150,7 +165,7 @@ function Formulaire(props) {
         setResult(res);
 
         let res2 = ("Bonjour Mesdames/Messieurs les @{{LAW_MEN}}, nous avons besoin de vos services pour : " + lastName + " " + firstName + "\n \n").replace("{{LAW_MEN}}", selectedLawMan);
-        res2 += "Faits reprochés : \n " + (selectedFacts.map(el => "\n -" + el.name + " " + "x" + el.quantity).join(" ")) + " \n \n";
+        res2 += "Faits reprochés : \n " + (selectedFacts.map(el => "\n -" + el.name + " " + ("x" + el.quantity)).join(" ")) + " \n \n";
         res2 += "Total des amendes : " + totalPrice + "$ \n";
         res2 += "Total de garde à vue (minutes) : " + totalTime + " min \n \n";
         res2 += "Saisie : " + seizureList + " \n";
@@ -158,36 +173,17 @@ function Formulaire(props) {
         res2 += "Cordialement | " + authorRegistration;
         setResult2(res2);
 
-    }, [result, result2, selectedLawMan, agentsRegistration, authorRegistration, lastName, firstName, phone, date1, date2, date3, date4, date5, placeProduction, isWaitingForJuge, factsDescription, totalPrice, totalTime, seizureList, siprnetLink, selectedFacts]);
-
-    // function sendData() {
-    //     let data = {
-    //         firstName: firstName,
-    //         lastName: lastName,
-    //         phone: phone,
-    //         isWaitingForJuge: isWaitingForJuge,
-    //         date1: date1,
-    //         date2: date2,
-    //         date3: date3,
-    //         date4: date4,
-    //         date5: date5,
-    //         placeProduction: placeProduction,
-    //         factsDescription: factsDescription,
-    //         seizureList: seizureList,
-    //         selectedFacts: selectedFacts,
-    //         selectedFactsString: selectedFactsString,
-    //         totalPrice: totalPrice,
-    //         totalTime: totalTime,
-    //         agentsRegistration: agentsRegistration,
-    //         authorRegistration: authorRegistration,
-    //         siprnetLink: siprnetLink
-    //     }
-    //     props.data(data);
-    // }
+    }, [readedRights,nbNotPayed,result, result2, selectedLawMan, agentsRegistration, authorRegistration, lastName, firstName, phone, date1, date2, date3, date4, date5, placeProduction, isWaitingForJuge, factsDescription, totalPrice, totalTime, seizureList, siprnetLink, selectedFacts]);
 
     return (
         <div>
             <div className={"bg-yellow-paper my-3 p-2"}>
+                <h6 className="text-muted mb-0 mt-2">0. Avant tout</h6>
+                <div className={"d-flex justify-content-start align-items-center"}>
+                    <label htmlFor="readedRights" className={(readedRights ? 'text-success fw-bolder' : 'text-danger fw-bolder')}>Le suspect à bien entendu et compris tous ses droits ? (Obligatoire avant mise en GAV)</label>
+                    <Checkbox color={"default"} name={"readedRights"} checked={readedRights} onChange={(event) => handleReadedRights(event)} />
+                </div>
+                <hr/>
                 <div className={"row my-2"}>
                     <h6 className="text-muted mb-0">1. Informations sur le suspect</h6>
                     <div className={"col-sm-12 col-md-6 col-lg-4 mt-3 px-4"}>
@@ -305,7 +301,7 @@ function Formulaire(props) {
                                    variant="outlined"/>
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
-                        <TextField rows={4} fullWidth multiline id="fact" className={"rounded text-light"}
+                        <TextField rows={12} fullWidth multiline id="fact" className={"rounded text-light"}
                                    color={"warning"}
                                    value={factsDescription}
                                    onChange={(e) => {
@@ -370,7 +366,7 @@ function Formulaire(props) {
                         </FormControl>
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
-                        <FactsList onChange={handleEditedFact} list={selectedFacts}/>
+                        <FactsList onChangeFactsNum={handleEditedFact} onChangeFactsStatus={handleEditedFactStatus} list={selectedFacts}/>
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
                         <Total totalTime={totalTime} totalPrice={totalPrice}/>
@@ -413,7 +409,12 @@ function Formulaire(props) {
                     </div>
                 </div>
             </div>
+            <div className={"d-flex fw-bold justify-content-center align-items-center " + (readedRights ? 'd-none' : '')}>
+                N'oublie pas de lire les droits du suspect et de cocher la petite case en haut !
+                <img width={"55rem"} src="https://image.noelshack.com/fichiers/2019/25/6/1561196427-bebel-en-peau-de-genou.png" alt="genou pistolet"/>
+            </div>
             <div className={"d-flex justify-content-center align-items-center my-3"}>
+
                 {(date1IsError || date2IsError || date3IsError || date4IsError || date5IsError) ?
                     <Button onClick={handleOpen} variant="contained" color={"error"}>
                         Attention à la cohérence de vos dates <Icon>warningAmber</Icon>
