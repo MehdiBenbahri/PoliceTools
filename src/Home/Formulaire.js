@@ -165,10 +165,6 @@ function Formulaire(props) {
         setResult(res);
 
         let res2 = ("Bonjour Mesdames/Messieurs les @{{LAW_MEN}}, nous avons besoin de vos services pour : " + lastName + " " + firstName + "\n \n").replace("{{LAW_MEN}}", selectedLawMan);
-        res2 += "Faits reprochés : \n " + (selectedFacts.map(el => "\n -" + el.name + " " + ("x" + el.quantity)).join(" ")) + " \n \n";
-        res2 += "Total des amendes : " + totalPrice + "$ \n";
-        res2 += "Total de garde à vue (minutes) : " + totalTime + " min \n \n";
-        res2 += "Saisie : " + seizureList + " \n";
         res2 += "Lien Siprnet : " + siprnetLink + " \n";
         res2 += "Cordialement | " + authorRegistration;
         setResult2(res2);
