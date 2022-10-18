@@ -3,7 +3,7 @@ import TelInput from "./TelInput";
 import DatePicker from "./DatePicker";
 import FormControl from "@mui/material/FormControl";
 import Autocomplete from "@mui/material/Autocomplete";
-import facts from "../Data/Facts";
+import facts from "../Data/FactsV2";
 import Checkbox from "@mui/material/Checkbox";
 import FactsList from "./FactsList";
 import Total from "./Total";
@@ -324,6 +324,7 @@ function Formulaire(props) {
                                    variant="outlined"/>
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
+                        {console.log(facts)}
                         <FormControl fullWidth>
                             <Autocomplete
                                 id="facts"

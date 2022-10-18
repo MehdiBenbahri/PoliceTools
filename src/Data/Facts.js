@@ -1,3 +1,24 @@
+const categories = [
+    {
+        name:"Infraction au code de la route"
+    },
+    {
+        name:"Délit mineur"
+    },
+    {
+        name:"Délit majeur"
+    },
+    {
+        name:"Crime"
+    },
+    {
+        name:"Crime fédéral"
+    },
+    {
+        name:"Justice"
+    }
+]
+
 const facts = [
     {
         "group": "Infraction",
