@@ -37,9 +37,9 @@ function FactsList(props) {
                                        defaultValue={el.quantity}/>
                             </div>
                             <div className={"d-flex justify-content-between align-items-center"}>
-                                <Checkbox color={"default"} defaultValue={el.is_not_payed}
-                                          onChange={(event) => handlePayedStatusChanged(event, index)}/>
-                                <label className={"text-muted ms-2 form-check-label"}>Amende impayée </label>
+                                {/*<Checkbox color={"default"} disabled defaultValue={el.is_not_payed}*/}
+                                {/*          onChange={(event) => handlePayedStatusChanged(event, index)}/>*/}
+                                {/*<label className={"text-muted ms-2 form-check-label"}>Amende impayée </label>*/}
                                 {
                                     el.comment ?
                                         (
