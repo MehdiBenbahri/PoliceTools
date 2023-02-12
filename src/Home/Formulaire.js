@@ -366,7 +366,7 @@ function Formulaire(props) {
                         <FactsList onChangeFactsNum={handleEditedFact} onChangeFactsStatus={handleEditedFactStatus} list={selectedFacts}/>
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
-                        <Total totalTime={totalTime} totalPrice={totalPrice}/>
+                        <Total totalTime={totalTime} dateGav={date4} totalPrice={totalPrice}/>
                     </div>
                 </div>
                 <div className={"row my-2"}>
