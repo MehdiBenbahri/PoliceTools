@@ -1,6 +1,4 @@
-import Checkbox from "@mui/material/Checkbox";
 import {Tooltip} from "@mui/material";
-import Button from "@mui/material/Button";
 import CommentIcon from '@mui/icons-material/Comment';
 
 function FactsList(props) {
@@ -8,11 +6,6 @@ function FactsList(props) {
     function handleQuantityChanged(event, index) {
         props.list[index].quantity = parseInt(event.target.value);
         props.onChangeFactsNum(props.list);
-    }
-
-    function handlePayedStatusChanged(event, index) {
-        props.list[index].is_not_payed = event.target.checked;
-        props.onChangeFactsStatus(props.list);
     }
 
     return (
@@ -37,9 +30,6 @@ function FactsList(props) {
                                        defaultValue={el.quantity}/>
                             </div>
                             <div className={"d-flex justify-content-between align-items-center"}>
-                                {/*<Checkbox color={"default"} disabled defaultValue={el.is_not_payed}*/}
-                                {/*          onChange={(event) => handlePayedStatusChanged(event, index)}/>*/}
-                                {/*<label className={"text-muted ms-2 form-check-label"}>Amende impayée </label>*/}
                                 {
                                     el.comment ?
                                         (

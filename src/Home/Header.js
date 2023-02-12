@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "@mui/material/Link";
-import {Icon} from "@mui/material";
 
 function Header(props) {
     return (

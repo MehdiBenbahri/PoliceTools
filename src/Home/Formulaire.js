@@ -154,7 +154,8 @@ function Formulaire(props) {
         res += "Date et heure de sortie de G.A.V : [" + moment(date5).format("DD/MM/YYYY") + "] [" + (isWaitingForJuge ? 'EN ATTENTE DE JUGEMENT' : moment(date5).format("HH:mm")) + "] \n \n";
         res += "Faits constatés : \n" + factsDescription + " \n \n";
         res += "Faits reprochés : \n " + (selectedFacts.map(el => {
-            let str = "\n -" + el.name + " " + ("x" + el.quantity) + " " + (el.is_not_payed ? '(Amende impayée)' : '');
+            //let str = "\n -" + el.name + " " + ("x" + el.quantity) + " " + (el.is_not_payed ? '(Amende impayée)' : '');
+            let str = `\n -${el.name} x${el.quantity} ${el.is_not_payed ? '(Amende impayée)' : ''}`;
             return str
         }).join(" ")) + " \n \n";
         res += "Total des amendes : " + totalPrice + "$ \n";
@@ -324,7 +325,6 @@ function Formulaire(props) {
                                    variant="outlined"/>
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
-                        {console.log(facts)}
                         <FormControl fullWidth>
                             <Autocomplete
                                 id="facts"

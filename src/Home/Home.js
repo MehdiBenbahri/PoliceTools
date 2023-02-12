@@ -1,7 +1,7 @@
 import "./Home.css";
 import Header from "./Header";
 import Menu from "./Menu";
-import {React, useState} from "react";
+import {React} from "react";
 import Formulaire from "./Formulaire";
 import {useLocation} from 'react-router-dom';
 

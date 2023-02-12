@@ -4,6 +4,7 @@ import Intro from "./Home/Intro";
 import React from 'react';
 import {Routes, Route} from "react-router-dom";
 import PageNotFound from "./PageNotFound";
+import Generate from "./Wanted/Generate";
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
                 <Route exact path="/bcso" element={<Home/>}/>
                 <Route exact path="/vespucci" element={<Home/>}/>
                 <Route exact path="/mission-row" element={<Home/>}/>
-                {/* 👇️ only match this when no other routes match */}
+                <Route exact path="/wanted" element={<Generate/>}/>
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </>
