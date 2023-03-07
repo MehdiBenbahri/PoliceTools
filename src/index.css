@@ -1,6 +1,10 @@
 html,body{
     overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
 }
 btn:focus, a:focus, input:focus
 {
@@ -15,7 +19,12 @@ btn:focus, a:focus, input:focus
 .shadow-blue{
     box-shadow: 0 0.25rem 0.5rem 0 rgb(47 91 234 / 10%)
 }
-
+.text-dark-paper{
+    color : #524b41;
+}
+.z-index-1{
+    z-index: 10000;
+}
 .cursive-text{
     font-family: 'Edu NSW ACT Foundation', cursive;
 }

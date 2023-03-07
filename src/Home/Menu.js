@@ -2,9 +2,7 @@ import Tabs from "@mui/material/Tabs";
 import LinkTab from "../Utils/LinkTab"
 import React, {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import {Box, Typography} from "@mui/material";
-import AttachEmailIcon from '@mui/icons-material/AttachEmail';
+import {Box} from "@mui/material";
 
 function Menu() {
 
@@ -47,7 +45,7 @@ function Menu() {
                     icon={<img width={"25rem"} src={"/img/LSPD_logo.webp"} alt="logo LSPD"/>}
                     label="Vespucci"
                     onClick={() => {
-                        navigate("/vespucci");
+                        navigate("/vespucci/rapport");
                         setValue(1);
                     }}
                 />
@@ -56,40 +54,40 @@ function Menu() {
                     icon={<img width={"25rem"} src={"/img/MR_logo.webp"} alt="logo MR"/>}
                     label="Mission Row"
                     onClick={() => {
-                        navigate("/mission-row");
+                        navigate("/mission-row/rapport");
                         setValue(2);
                     }}
                 />
-                <LinkTab
-                    disabled={true}
-                    className={"tab-hover ms-md-3 ms-lg-5 opacity-25" + (value === 3 ? "tab-selected" : "")}
-                    icon={<AssignmentIndIcon/>}
-                    label={
-                        (<Typography fontSize={"9px"}>
-                            Avis Recherche <br/>
-                            (Bientôt disponible)
-                        </Typography>)
-                    }
-                    onClick={() => {
-                        navigate("/wanted");
-                        setValue(3);
-                    }}
-                />
-                <LinkTab
-                    disabled={true}
-                    className={"tab-hover opacity-25" + (value === 4 ? "tab-selected" : "")}
-                    icon={<AttachEmailIcon/>}
-                    label={
-                        (<Typography fontSize={"9px"}>
-                            Commniqué officiel <br/>
-                            (Prévue)
-                        </Typography>)
-                    }
-                    onClick={() => {
-                        navigate("/communication");
-                        setValue(4);
-                    }}
-                />
+                {/*<LinkTab*/}
+                {/*    className={"tab-hover ms-md-3 ms-lg-5 opacity-25" + (value === 3 ? "tab-selected" : "")}*/}
+                {/*    icon={<AssignmentIndIcon/>}*/}
+                {/*    label={*/}
+                {/*        (*/}
+                {/*            <Typography fontSize={"9px"}>*/}
+                {/*                Avis Recherche*/}
+                {/*            </Typography>*/}
+                {/*        )*/}
+                {/*    }*/}
+                {/*    onClick={() => {*/}
+                {/*        navigate("/wanted");*/}
+                {/*        setValue(3);*/}
+                {/*    }}*/}
+                {/*/>*/}
+                {/*<LinkTab*/}
+                {/*    disabled={true}*/}
+                {/*    className={"tab-hover opacity-25" + (value === 4 ? "tab-selected" : "")}*/}
+                {/*    icon={<AttachEmailIcon/>}*/}
+                {/*    label={*/}
+                {/*        (<Typography fontSize={"9px"}>*/}
+                {/*            Commniqué officiel <br/>*/}
+                {/*            (Prévue)*/}
+                {/*        </Typography>)*/}
+                {/*    }*/}
+                {/*    onClick={() => {*/}
+                {/*        navigate("/communication");*/}
+                {/*        setValue(4);*/}
+                {/*    }}*/}
+                {/*/>*/}
             </Tabs>
         </Box>
     )

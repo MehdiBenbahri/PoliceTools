@@ -175,14 +175,14 @@ function Formulaire(props) {
     return (
         <div>
             <div className={"bg-yellow-paper my-3 p-2"}>
-                <h6 className="text-muted mb-0 mt-2">0. Avant tout</h6>
+                <h6 className="text-dark-paper mb-0 mt-2">0. Avant tout</h6>
                 <div className={"d-flex justify-content-start align-items-center"}>
                     <label htmlFor="readedRights" className={(readedRights ? 'text-success fw-bolder' : 'text-danger fw-bolder')}>Le suspect à bien entendu et compris tous ses droits ? (Obligatoire avant mise en GAV)</label>
                     <Checkbox color={"default"} name={"readedRights"} checked={readedRights} onChange={(event) => handleReadedRights(event)} />
                 </div>
                 <hr/>
                 <div className={"row my-2"}>
-                    <h6 className="text-muted mb-0">1. Informations sur le suspect</h6>
+                    <h6 className="text-dark-paper mb-0">1. Informations sur le suspect</h6>
                     <div className={"col-sm-12 col-md-6 col-lg-4 mt-3 px-4"}>
                         <TextField fullWidth id="firstname" className={"rounded text-light"} color={"warning"}
                                    label="Prénom"
@@ -210,9 +210,10 @@ function Formulaire(props) {
                     </div>
                 </div>
                 <div className={"row my-2"}>
-                    <h6 className="text-muted mb-0 mt-2">2. Horodatage de l'affaire</h6>
+                    <h6 className="text-dark-paper mb-0 mt-2">2. Horodatage de l'affaire</h6>
                     <div className={"col-sm-12 col-md-6 col-lg-6 mt-3 px-4"}>
                         <DatePicker label={"Date/Heure de production des faits"}
+                                    sx={{borderColor:"#a28a59!important"}}
                                     onChange={(e) => {
                                         setDate1(e.target.value);
                                         setDate1IsError(new Date(date1).getTime() >= new Date(date2).getTime());
@@ -246,6 +247,7 @@ function Formulaire(props) {
                     <div className={"col-sm-12 col-md-6 col-lg-6 mt-3 px-4"}>
                         <DatePicker label={"Date/Heure de mise en G.A.V"}
                                     min={date3}
+                                    className={"date-picker"}
                                     isError={!isWaitingForJuge ? new Date(date4).getTime() >= new Date(date5).getTime() : false}
                                     onChange={(e) => {
                                         setDate4(e.target.value);
@@ -256,7 +258,7 @@ function Formulaire(props) {
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
                         <div className={"d-flex flex-column justify-content-between align-content-center"}>
-                            <div className={"d-flex justify-content-start align-content-center text-muted"}>
+                            <div className={"d-flex justify-content-start align-content-center text-dark-paper"}>
                                 <span className={"mt-2"}>L'individu est en attente de jugement ?</span>
                                 <Checkbox checked={isWaitingForJuge}
                                           onChange={() => {
@@ -268,7 +270,7 @@ function Formulaire(props) {
                                 />
                             </div>
                             <div className={"d-flex flex-column justify-content-between align-content-center"}>
-                                <label style={{fontSize: "0.75rem"}} htmlFor="date-production" className={"text-muted"}>Date/Heure
+                                <label style={{fontSize: "0.75rem"}} htmlFor="date-production" className={"text-dark-paper"}>Date/Heure
                                     de sortie de G.A.V</label>
                                 <input name={"date-production"}
                                        defaultValue={moment(date5).format("YYYY-MM-DD").toString()}
@@ -277,7 +279,7 @@ function Formulaire(props) {
                                            setDate5(e.target.value);
                                            //sendData();
                                        }}
-                                       className={"form-control-lg border border-yellow-paper shadow-none bg-transparent"}
+                                       className={"date-picker"}
                                        type={!isWaitingForJuge ? "datetime-local" : "date"}
                                 />
                             </div>
@@ -285,7 +287,7 @@ function Formulaire(props) {
                     </div>
                 </div>
                 <div className={"row my-2"}>
-                    <h6 className="text-muted mb-0 mt-2">3. Informations sur les faits</h6>
+                    <h6 className="text-dark-paper mb-0 mt-2">3. Informations sur les faits</h6>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
                         <TextField fullWidth id="where" className={"rounded text-light"} color={"warning"}
                                    label="Lieu(x) de production des faits"
@@ -370,7 +372,7 @@ function Formulaire(props) {
                     </div>
                 </div>
                 <div className={"row my-2"}>
-                    <h6 className="text-muted mb-0 mt-2">4. Informations du dossier</h6>
+                    <h6 className="text-dark-paper mb-0 mt-2">4. Informations du dossier</h6>
                     <div className={"col-sm-12 col-md-6 col-lg-4 mt-3 px-4"}>
                         <TextField fullWidth id="agents" className={"rounded text-light"} color={"warning"}
                                    label="Matricules des agents présents"
@@ -462,20 +464,20 @@ function Formulaire(props) {
                         <div className={"d-flex justify-content-between align-items-center"}>
                             <div className={"d-flex justify-content-center align-items-center"}>
                                 <Button color={"error"}
-                                        className={(selectedLawMan === "Juge" ? 'border border-2 border-light' : '')}
+                                        className={(selectedLawMan === "Juge" ? 'border border-2 ' : '')}
                                         variant={"contained"} onClick={() => {
                                     setSelectedLawMan("Juge");
                                 }}>
                                     Juge ‍⚖️
                                 </Button>
                                 <Button
-                                    className={"mx-3 " + (selectedLawMan === "Procureur" ? 'border border-2 border-light' : '')}
+                                    className={"mx-3 " + (selectedLawMan === "Procureur" ? 'border border-2 ' : '')}
                                     color={"secondary"} variant={"contained"}
                                     onClick={() => setSelectedLawMan("Procureur")}>
                                     Procureur 📚
                                 </Button>
                                 <Button color={"info"}
-                                        className={(selectedLawMan === "Avocat" ? 'border border-2 border-light' : '')}
+                                        className={(selectedLawMan === "Avocat" ? 'border border-2 ' : '')}
                                         variant={"contained"} onClick={() => setSelectedLawMan("Avocat")}>
                                     Avocat 💼
                                 </Button>

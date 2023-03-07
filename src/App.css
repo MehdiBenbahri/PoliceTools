@@ -34,3 +34,19 @@ body{
 .MuiTabs-indicator{
     background-color: #ffa600 !important;;
 }
+
+.bg-yellow-paper{
+    background-color: #d3b374;
+}
+.border-yellow-paper{
+    border: 1px solid #a28a59 !important;
+}
+.border-solid{
+    border-style: solid;
+}
+.date-picker{
+    background-color: transparent;
+    border : 1px solid #a28a59;
+    border-radius: 0.25rem;
+    padding : 0.5rem
+}
