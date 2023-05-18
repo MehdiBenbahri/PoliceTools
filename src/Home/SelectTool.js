@@ -21,8 +21,9 @@ function SelectTool() {
                              img={"/img/fouille.webp"}
                              description={`Pour que les gens qui reste à l'entrée du PDP pendant 40 min soit utile, notre gouvernement
                              a conçu des procédures de plainte améliorées afin d'occuper les agents en ADP.`}
-                             btnText={""}
-                             link={window.location.href + "/complaint"} />
+                             btnText={"Bientôt disponible"}
+                             disabled={true}
+                    />
                 </Box>
             </Box>
         </Box>

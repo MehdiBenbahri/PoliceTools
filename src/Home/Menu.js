@@ -36,7 +36,7 @@ function Menu() {
                     icon={<img width={"25rem"} src={"/img/BCSO_logo.webp"} alt="logo BCSO"/>}
                     label="BCSO"
                     onClick={() => {
-                        navigate("/bcso");
+                        navigate("/bcso/rapport");
                         setValue(0);
                     }}
                 />
@@ -58,36 +58,6 @@ function Menu() {
                         setValue(2);
                     }}
                 />
-                {/*<LinkTab*/}
-                {/*    className={"tab-hover ms-md-3 ms-lg-5 opacity-25" + (value === 3 ? "tab-selected" : "")}*/}
-                {/*    icon={<AssignmentIndIcon/>}*/}
-                {/*    label={*/}
-                {/*        (*/}
-                {/*            <Typography fontSize={"9px"}>*/}
-                {/*                Avis Recherche*/}
-                {/*            </Typography>*/}
-                {/*        )*/}
-                {/*    }*/}
-                {/*    onClick={() => {*/}
-                {/*        navigate("/wanted");*/}
-                {/*        setValue(3);*/}
-                {/*    }}*/}
-                {/*/>*/}
-                {/*<LinkTab*/}
-                {/*    disabled={true}*/}
-                {/*    className={"tab-hover opacity-25" + (value === 4 ? "tab-selected" : "")}*/}
-                {/*    icon={<AttachEmailIcon/>}*/}
-                {/*    label={*/}
-                {/*        (<Typography fontSize={"9px"}>*/}
-                {/*            Commniqué officiel <br/>*/}
-                {/*            (Prévue)*/}
-                {/*        </Typography>)*/}
-                {/*    }*/}
-                {/*    onClick={() => {*/}
-                {/*        navigate("/communication");*/}
-                {/*        setValue(4);*/}
-                {/*    }}*/}
-                {/*/>*/}
             </Tabs>
         </Box>
     )

@@ -48,9 +48,6 @@ function Complaint() {
                             <ComplaintSubject />
                         </Box>
                     </Box>
-                    {
-                        console.log(conditionsChecked)
-                    }
                 </Box>
             </Box>
         </Box>
