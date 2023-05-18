@@ -12,6 +12,7 @@ import Icon from "@mui/material/Icon";
 import Button from "@mui/material/Button"
 import {React, useState, useEffect} from "react";
 import Modal from "@mui/material/Modal";
+import {Box} from "@mui/material";
 
 function Formulaire(props) {
 
@@ -100,9 +101,9 @@ function Formulaire(props) {
     const [seizureIsError, setSeizureIsError] = useState(false);
     const [seizureIsErrorMessage, setSeizureIsErrorMessage] = useState('');
     useEffect(function() {
-        if (selectedFacts.filter(el => el.concernWeapon === true).length > 0 && seizureList.length <= 2){
+        if (selectedFacts.filter(el => el.concernWeapon === true).length > 0 && seizureList.length <= 16){
             setSeizureIsError(true);
-            setSeizureIsErrorMessage("️️Attention : vous avez sélectionné des faits reprochés qui concernent des armes, vérifier bien que vous avez saisi toutes les armes sur cet individu ! Si ce dernier n'avait pas d'arme sur lui (en cas de complicité), ajouter 'Aucune arme saisi sur l'individu'.")
+            setSeizureIsErrorMessage("️️Attention : vous avez sélectionné des faits reprochés qui concernent des armes, vérifier bien que vous avez saisi toutes les armes sur cet individu ! Si ce dernier n'avait pas d'arme sur lui (en cas de complicité), ajouter 'Aucune arme saisi sur l'individu'. Saisissez aussi les NUMÉRO DE SÉRIE DE l'ARME & Séparez tout sur Siprnet. N'oubliez pas les chargeurs non plus !")
         }
         else{
             setSeizureIsError(false);
@@ -312,8 +313,8 @@ function Formulaire(props) {
                                    variant="outlined"
                         />
                     </div>
-                    <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
-                        <TextField fullWidth id="object" className={"rounded text-light"}
+                    <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4 d-flex justify-content-between align-items-start"}>
+                        <TextField fullWidth id="object" className={`rounded text-light ${seizureIsError ? 'pe-2' : ''}`}
                                    color={"warning"}
                                    label="Saisies"
                                    error={seizureIsError}
@@ -323,8 +324,15 @@ function Formulaire(props) {
                                        setSeizureList(e.target.value);
                                        //sendData();
                                    }}
-                                   placeholder={"5 Berretta, 15 000$ d'argent sale ainsi qu'un couteau rose fluo..."}
+                                   placeholder={"Berretta (XD14AAE5A5), 15 000$ d'argent sale ainsi qu'un couteau rose fluo..."}
                                    variant="outlined"/>
+                        <Box position="end" className={seizureIsError ? 'd-block' : 'd-none'}>
+                            <img alt={"alert police sirene"}
+                                 className={"rounded"}
+                                 src={"https://risibank.fr/cache/medias/0/5/546/54620/full.gif"}
+                                 width={"50rem"}
+                                 height={"50rem"} />
+                        </Box>
                     </div>
                     <div className={"col-sm-12 col-md-12 col-lg-12 mt-3 px-4"}>
                         <FormControl fullWidth>
