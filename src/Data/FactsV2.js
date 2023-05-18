@@ -857,6 +857,7 @@ const facts = [{
     "comment": "1000 $ par otage  / amende multiplié par nombre d'otage",
     "time": 60,
     "federalTime": "1h00",
+    "concernWeapon": true,
     "quantity": 1,
     "is_not_payed": false,
 }, {
@@ -866,6 +867,7 @@ const facts = [{
     "comment": "1000 $ par otage  / amende multiplié par nombre d'otage",
     "time": 75,
     "federalTime": 120,
+    "concernWeapon": true,
     "quantity": 1,
     "is_not_payed": false,
 }, {
